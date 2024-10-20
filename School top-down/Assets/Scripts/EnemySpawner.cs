@@ -31,10 +31,10 @@ public class NewBehaviourScript : MonoBehaviour
                 spawnPos = new Vector2(Random.Range(-screenBounds.x, screenBounds.x), -screenBounds.y - spawnDistance);
                 break;
             case 2:
-                spawnPos = new Vector2(screenBounds.x + spawnDistance, Random.Range(screenBounds.y, screenBounds.y));
+                spawnPos = new Vector2(screenBounds.x + spawnDistance, Random.Range(-screenBounds.y, screenBounds.y));
                 break;
             case 3:
-                spawnPos = new Vector2(-screenBounds.x - spawnDistance, Random.Range(screenBounds.y, screenBounds.y));
+                spawnPos = new Vector2(-screenBounds.x - spawnDistance, Random.Range(-screenBounds.y, screenBounds.y));
                 break;
         }
         Instantiate(enemyPrefab, spawnPos, transform.rotation);
