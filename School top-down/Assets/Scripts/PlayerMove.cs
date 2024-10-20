@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class playerMove : MonoBehaviour
@@ -30,7 +31,8 @@ public class playerMove : MonoBehaviour
             rb.angularVelocity = 0;
         }
 
-
+        screenBoundery = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+        transform.position = new Vector2(Mathf.Clamp(transform.position.x, -screenBoundery.x, screenBoundery.x), Mathf.Clamp(transform.position.y, -screenBoundery.y, screenBoundery.y));
     }
 
     private void FixedUpdate()
