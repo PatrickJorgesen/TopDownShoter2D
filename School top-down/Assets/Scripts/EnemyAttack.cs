@@ -14,7 +14,17 @@ public class enemyAttack : MonoBehaviour
         player = GameObject.FindWithTag("Player");
     }
 
-    void Update()
+    private void Update()
+    {
+        if (player != null)
+        {
+            Vector2 lookDir = player.transform.position - transform.position;
+            float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
+            rb.rotation = angle;
+        }
+    }
+
+    void FixedUpdate()
     {
         if (player != null)
         {
